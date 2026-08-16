@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WPA3 Transition Downgrade — Results</title>
+	<link rel="stylesheet" href="../../../style.css">
+	<script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+	<a href="../../../index.html" class="back-link"><- Overview</a>
+	<h1>WPA3 Transition — Downgrade to WPA2-PSK</h1>
+
+	<div class="card">
+		<p><b>Prerequisites:</b> client connected to a WPA3-Transition AP (SAE+PSK).</p>
+		<p>A rogue WPA2-PSK-only AP with the same SSID is running</p>
+		<p>After the legitimate AP is stopped, a vulnerable client automatically associates using WPA2-PSK, completing a downgrade attack.</p>
+		<p><b>Success:</b> client send valid hash to rogue WPA2-PSK AP.</p>
+	</div>
+
+	<div class="card">
+		<h2>Mitigations</h2>
+		<ul>
+			<li>Enforce SAE-only association (disable PSK fallback)</li>
+			<li>WPA3-only mode (no transition mode)</li>
+		</ul>
+	</div>
+    <div class="card" style="overflow-x: auto;">
+        <h2>filler</h2>
+        <table class="aggregate">
+            <thead><tr><th>AP Driver</th><th>Client Driver</th><th>Disconnected</th><th>Downgrade Seen</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>rtl8852au</td>
+                    <td>mt76x2u</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td>mt76x2u</td>
+                    <td>rtl8xxxu</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                </tr>
+            </tbody>
+        </table>
+</div></body>
+</html>
