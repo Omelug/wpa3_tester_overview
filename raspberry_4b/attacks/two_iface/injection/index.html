@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injection Test Cache</title>
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+    <a href="../../../index.html" class="back-link">&lt;- Overview</a>
+    <h1>Injection Test — Cached Results</h1>
+    <div class="card">
+        <p>Frame injection capability results cached per (transceiver, receiver) hardware pair.</p>
+        <p><b>P</b> = PASSED &nbsp; <b>F</b> = FAIL &nbsp; <b>NC</b> = no capture &nbsp; <b>-</b> = not tested</p>
+    </div>
+    <div class="card">
+        <table class="aggregate">
+            <thead><tr><th>TX MAC</th><th>RX MAC</th><th>TX Driver</th><th>RX Driver</th><th class="rotated">injection_fields_retrans</th><th class="rotated">injection_fields_spoofed</th><th class="rotated">injection_fields_valid</th><th class="rotated">injection_more_fragments_spoofed</th><th class="rotated">injection_more_fragments_valid</th><th class="rotated">injection_order_spoofed</th><th class="rotated">injection_order_valid</th><th class="rotated">test_injection_txack</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>24:ec:99:bf:b0:a1</td>
+                    <td>90:de:80:6c:90:92</td>
+                    <td>ath9k_htc</td>
+                    <td>mt76x2u</td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-fail">F</span></td>
+                    <td><span class="it-fail">F</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-nc">NC</span></td>
+                </tr>
+                <tr>
+                    <td>10:7b:ef:cc:08:df</td>
+                    <td>90:de:80:6c:90:92</td>
+                    <td>rtl8192cu</td>
+                    <td>mt76x2u</td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-pass">P</span></td>
+                    <td><span class="it-fail">F</span></td>
+                    <td><span class="it-fail">F</span></td>
+                    <td><span class="it-nc">NC</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

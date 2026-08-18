@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSA DoS Attack — Results</title>
+	<link rel="stylesheet" href="../../../style.css">
+	<script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+	<a href="../../../index.html" class="back-link"><- Overview</a>
+	<h1>Channel Switch Announcement (CSA) DoS</h1>
+
+	<div class="card">
+		<p><b>prerequisites:</b> client connected to legit ap </p>
+		<p>The attacker sends CSA beacons causing a connected client to switch
+		   Wi-Fi channels, disconnecting it from the legitimate AP.
+		   Optionally can attacker create rogue AP on new channel with WPA2 to downgrade and het WPA2 hash </p>
+		<p><b>variants:</b> optionally attack can have rogue AP to check downgrade and WPA2 password<p>
+		<p><b>success:</b> client disconnected from ap, in second variant try to connect to rogue AP</p>
+
+
+	<img src="../../../images/CSA.svg" alt="CSA attack diagram" style="max-width:60%; margin-top:12px; display:block; margin-left:auto; margin-right:auto;">
+
+		</div>
+	<div class="card">
+	   <h2>Mitigations</h2>
+<p>    OCV is protection, what add channel info (OCI) info into some frames, beacon protection is needed.
+Not very supported, mobile devices have better support (//TODO add source)</p>
+	</div>
+
+    <div class="card" style="overflow-x: auto;">
+        <h2>RogueAP internal</h2>
+        <table class="aggregate">
+            <thead><tr><th>channel_switch_rogueAP_*</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)<br> RogueAP MAC (driver)</th><th>Disconnected? <br> (from AP view)</th><th>Rogue WPA2 AP?</th><th>AP OCV / Client OCV support</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th><th>client scanning</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>internal_34e1cfeb</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr><tr><td>OPTIONAL</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 2 5 6 7<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 2 5 6 7</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_559c498e</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr><tr><td>OPTIONAL</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip"><strong style="color:red">ch: 1 5 6 7</strong><span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 4 5 6 7 8 10</td><td>attacker pcap</td></tr><tr><td>ch: 1 5 6 7</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>WPA2_internal_MFP_34e1cfeb</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:2
+(WPA-PSK)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:2
+(WPA-PSK)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 1 5 6 7<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 5 6 7</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>WPA2_internal_MFP_559c498e</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:2
+(WPA-PSK)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:2
+(WPA-PSK)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 1 2 5 6 7 8 10<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 2 5 6 7 8 10</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_MFP_req_559c498e</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 1 5 6 7 10<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 5 6 7 10</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_MFP_req_34e1cfeb</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 1 2 4 5 6 7 10<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 2 4 5 6 7 10</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_9621c8b0</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr><tr><td>OPTIONAL</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip"><strong style="color:red">ch: 1 2 5 6 7 10 12 13</strong><span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 5 6 7</td><td>attacker pcap</td></tr><tr><td>ch: 1 2 5 6 7 10 12 13</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>WPA2_internal_MFP_9621c8b0</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:2
+(WPA-PSK)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:2
+(WPA-PSK)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 1 3 5 6 7 9 11 12<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 3 5 6 7 9 11 12</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_MFP_req_9621c8b0</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 1 5 6 7 9 11 12<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 5 6 7 9 11 12</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_f36fc44f</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/10:7b:ef:cc:08:df/index.html">10:7b:ef:cc:08:df</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr><tr><td>OPTIONAL</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip"><strong style="color:red">ch: 1 5 6 7</strong><span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 4 5 6 7 10</td><td>attacker pcap</td></tr><tr><td>ch: 1 5 6 7</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_1ffd1e7e</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/28:87:ba:a3:cf:16/index.html">28:87:ba:a3:cf:16</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr><tr><td>OPTIONAL</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip"><strong style="color:red">ch: 1 2 4 5 6 7 10</strong><span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 5 6 7 13</td><td>attacker pcap</td></tr><tr><td>ch: 1 2 4 5 6 7 10</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_e935bd54</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr><tr><td>OPTIONAL</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 2 5 6 7 11<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 2 5 6 7 11</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>WPA2_internal_MFP_e935bd54</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:2
+(WPA-PSK)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:2
+(WPA-PSK)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 4 5 6 7 11 12<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 4 5 6 7 11 12</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+                <tr>
+                    <td>internal_MFP_req_e935bd54</td>
+                    <td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td>
+                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (internal)</td>
+                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (mt76x2u)<br><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>log</td></tr></table></span></span> (yes)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>hostapd_conf</td></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr><tr><td>REQUIRED</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">00-0f-ac:8
+(SAE)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:8
+(SAE)</td><td>hostapd</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">ch: 5 6 7 11 12 13<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 5 6 7 11 12 13</td><td>ap log</td></tr></table></span></span></td>
+                </tr>
+            </tbody>
+        </table>
+</div></body>
+</html>
