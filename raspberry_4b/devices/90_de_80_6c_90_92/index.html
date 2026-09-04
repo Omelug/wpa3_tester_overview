@@ -16,7 +16,8 @@
             <tr><th>Permanent MAC</th><td>90:de:80:6c:90:92</td></tr>
             <tr><th>Source</th><td>internal</td></tr>
             <tr><th>Driver</th><td>mt76x2u</td></tr>
-            <tr><th>Driver hash</th><td>453c03c035c42809</td></tr>
+            <tr><th>Driver hash</th><td>E8509E602D471F610761434</td></tr>
+            <tr><th>Module hash</th><td>338e2257a8bb6570</td></tr>
         </table>
     </div>
     <div class="card">
@@ -36,15 +37,17 @@
     <div class="card">
         <h2>System Snapshot</h2>
         <table>
-            <tr><th>PHY</th><td>phy1</td></tr>
+            <tr><th>PHY</th><td>phy4</td></tr>
+            <tr><th>Channel switch</th><td>&#10003; -1 &micro;s</td></tr>
+            <tr><th>NetNS move</th><td>to netns: 619 ms &nbsp; return: 24 ms</td></tr>
         </table>
         <h3><code>iw dev info</code></h3>
-        <pre>Interface wlan1
-	ifindex 5
-	wdev 0x100000001
+        <pre>Interface wlan4
+	ifindex 7
+	wdev 0x400000001
 	addr 90:de:80:6c:90:92
 	type monitor
-	wiphy 1
+	wiphy 4
 	channel 6 (2437 MHz), width: 20 MHz (no HT), center1: 2437 MHz
 	txpower 20.00 dBm
 	multicast TXQ:
@@ -58,7 +61,7 @@
   "mt76": {
     "agc": "avg_rssi: -75
 low_gain: 1
-false_cca: 8398
+false_cca: 8904
 agc_gain_adjust: 16
 ",
     "ampdu_stat": "Length:        1 |        2 |        3 |        4 |        5 |        6 |        7 |        8 | 
@@ -92,7 +95,7 @@ Count:         0 |        0 |        0 |        0 |        0 |        0 |       
       "regidx",
       "led_pin"
     ],
-    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy1/mt76",
+    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy4/mt76",
     "dfs_stats": "allocated sequences:	0
 used sequences:		0
 
@@ -116,14 +119,14 @@ engine: 3
     "edcca": "0
 ",
     "present": true,
-    "rate_txpower": "             CCK:    6    6    6    6
-            OFDM:    4    4    4    4    0    0    0    0
-              HT:    4    4    4    4    0    0    0    0    4    4    4    4    0    0    0    0
-             VHT:    0    0
+    "rate_txpower": "       CCK:  6  6  6  6
+      OFDM:  4  4  4  4  0  0  0  0
+        HT:  4  4  4  4  0  0  0  0  4  4  4  4  0  0  0  0
+       VHT:  0  0
 ",
     "reg_peek_available": true,
     "rx_queues": "     queue | hw-queued |      head |      tail |
-         0 |       128 |        81 |        81 |
+         0 |       128 |        30 |        30 |
 ",
     "temperature_raw": "0
 ",
@@ -132,17 +135,17 @@ engine: 3
     "tx_hang_reset": "0
 ",
     "tx_queues": "     queue | hw-queued |      head |      tail |
-         0 |         0 |         0 |         0 |
+         0 |         0 |        12 |        12 |
          1 |         0 |         0 |         0 |
-         2 |         0 |         0 |         0 |
-         3 |         0 |         0 |         0 |
+         2 |         0 |        27 |        27 |
+         3 |         0 |        42 |        42 |
          4 |         0 |         0 |         0 |
 ",
     "txpower": "Target power: 28
-           Delta:    0    1
+     Delta:  0  1
 "
   },
-  "phy": "phy1"
+  "phy": "phy4"
 }</pre>
     </div>
 </body>

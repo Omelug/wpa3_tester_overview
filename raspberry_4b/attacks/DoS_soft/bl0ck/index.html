@@ -3,15 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bl0ck BA DoS Attack — Results</title>
+	<title>Bl0ck BA DoS Attack - Results</title>
 	<link rel="stylesheet" href="../../../style.css">
 	<script src="../../../table_aggregate.js"></script>
 </head>
 <body>
 	<a href="../../../index.html" class="back-link"><- Overview</a>
-	<h1>Bl0ck — Block ACK (BA) DoS</h1>
+	<h1>Bl0ck - Block ACK (BA) DoS</h1>
 
-	<div class="card">
+	<div class="card"> <!-- TODO DELBA/ADDAS protected wth MFP? -->
 		<p><b>prerequisites:</b> client connected to access point, QoS data used 802.11ac or 802.11ax, attacker needs to be physically between AP and client</p>
 		<p>Bl0ck exploits the Block ACK mechanism by injecting spoofed frames
 		   that corrupt the receiver's sequence-number state, causing network issues (typycal disconnect)
@@ -19,9 +19,9 @@
 		   Source/python implementation: <a href="https://github.com/efchatz/Bl0ck/tree/main?tab=readme-ov-file" target="_blank">efchatz/Bl0ck</a></p>
 		<p><b>variants:</b></p>
 		<ul>
-			<li><b>BA</b> — attacker sends BA frames spoofing connected STA's MAC with an invalid SSN; the AP stops sending QoS Data frames to all< connected STAs for the duration of the attack. After the attack ends the AP typically recovers.</li>
-			<li><b>BAR</b> — attacker sends BAR frames spoofing a connected STA's MAC with an invalid SSN; the AP stops responding with QoS Data to that specific spoofed MAC. The legitimate STA stays connected but cannot receive QoS Data even after the attack ends — requires manual reconnection to recover.</li>
-			<li><b>BARS</b> — special case of BAR using a valid SSN instead of an invalid one; the resulting AP behaviour is identical to BAR.</li>
+			<li><b>BA</b> - attacker sends BA frames spoofing connected STA's MAC with an invalid SSN; the AP stops sending QoS Data frames to all< connected STAs for the duration of the attack. After the attack ends the AP typically recovers.</li>
+			<li><b>BAR</b> - attacker sends BAR frames spoofing a connected STA's MAC with an invalid SSN; the AP stops responding with QoS Data to that specific spoofed MAC. The legitimate STA stays connected but cannot receive QoS Data even after the attack ends - requires manual reconnection to recover.</li>
+			<li><b>BARS</b> - special case of BAR using a valid SSN instead of an invalid one; the resulting AP behaviour is identical to BAR.</li>
 		</ul>
 		<p><b>success:</b> client disconnected from access point</p>
 	</div>
@@ -35,37 +35,102 @@
     <div class="card" style="overflow-x: auto;">
         <h2>BA_filler</h2>
         <table class="aggregate">
-            <thead><tr><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th></tr></thead>
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
             <tbody>
+                <tr>
+                    <td>bl0ck_BA_97489bfa</td>
+                    <td>90:de:80:de:ff:a1 (internal)</td>
+                    <td>90:de:80:4e:31:e6 (internal)</td>
+                    <td>90:de:80:de:fd:b2 (mt76x2u)</td>
+                    <td>BA</td>
+                    <td>3</td>
+                    <td><span class="has-tooltip">down<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client pcap</td></tr><tr><td>no</td><td>trace_cmd ap</td></tr></table></span></span></td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
             </tbody>
         </table>
-</div>    <div class="card" style="overflow-x: auto;">
+<small>data from BA_filler</small></div>    <div class="card" style="overflow-x: auto;">
         <h2>BAR_filler</h2>
         <table class="aggregate">
-            <thead><tr><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th></tr></thead>
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
             <tbody>
                 <tr>
-                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
-                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (internal)</td>
-                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)</td>
+                    <td>bl0ck_BAR_97489bfa</td>
+                    <td>90:de:80:de:ff:a1 (internal)</td>
+                    <td>90:de:80:4e:31:e6 (internal)</td>
+                    <td>90:de:80:de:fd:b2 (mt76x2u)</td>
                     <td>BAR</td>
-                    <td>0</td>
+                    <td>1</td>
+                    <td><span class="has-tooltip">down<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client pcap</td></tr><tr><td>no</td><td>trace_cmd ap</td></tr></table></span></span></td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
                 </tr>
             </tbody>
         </table>
-</div>    <div class="card" style="overflow-x: auto;">
+<small>data from BAR_filler</small></div>    <div class="card" style="overflow-x: auto;">
         <h2>BARS_filler</h2>
         <table class="aggregate">
-            <thead><tr><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th></tr></thead>
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
             <tbody>
                 <tr>
-                    <td><a href="../../../devices/00:c0:ca:b5:e1:58/index.html">00:c0:ca:b5:e1:58</a> (internal)</td>
-                    <td><a href="../../../devices/00:c0:ca:b7:69:2a/index.html">00:c0:ca:b7:69:2a</a> (internal)</td>
-                    <td><a href="../../../devices/90:de:80:6c:90:92/index.html">90:de:80:6c:90:92</a> (mt76x2u)</td>
+                    <td>bl0ck_BARS_97489bfa</td>
+                    <td>90:de:80:de:ff:a1 (internal)</td>
+                    <td>90:de:80:4e:31:e6 (internal)</td>
+                    <td>90:de:80:de:fd:b2 (mt76x2u)</td>
                     <td>BARS</td>
-                    <td>0</td>
+                    <td>5</td>
+                    <td><span class="has-tooltip">down<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client pcap</td></tr><tr><td>no</td><td>trace_cmd ap</td></tr></table></span></span></td>
+                    <td>?<br>?</td>
+                    <td>no</td>
                 </tr>
             </tbody>
         </table>
-</div></body>
+<small>data from BARS_filler</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>bl0ck_*</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>BARS_Dlink</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:fd:b2 (internal)</td>
+                    <td>90:de:80:de:ff:a1 (mt76x2u)</td>
+                    <td>BARS</td>
+                    <td>0</td>
+                    <td><span class="has-tooltip">down<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client pcap</td></tr><tr><td>no</td><td>trace_cmd ap</td></tr></table></span></span></td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td>BAR_Dlink</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:fd:b2 (internal)</td>
+                    <td>90:de:80:de:ff:a1 (mt76x2u)</td>
+                    <td>BAR</td>
+                    <td>0</td>
+                    <td><span class="has-tooltip">down<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr><tr><td>down</td><td>iperf3 down (>=5s)</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client pcap</td></tr><tr><td>no</td><td>trace_cmd ap</td></tr></table></span></span></td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td>BA_Dlink</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:fd:b2 (internal)</td>
+                    <td>90:de:80:de:ff:a1 (mt76x2u)</td>
+                    <td>BA</td>
+                    <td>0</td>
+                    <td><span class="has-tooltip">unstable<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>unstable</td><td>iperf3 unstable (<5s outage)</td></tr><tr><td>unstable</td><td>iperf3 unstable (<5s outage)</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client pcap</td></tr><tr><td>no</td><td>trace_cmd ap</td></tr></table></span></span></td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from bl0ck_Dlink_suite</small></div></body>
 </html>

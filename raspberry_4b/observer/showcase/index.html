@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>observer graphs showcase</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <a href="../../index.html" class="back-link">&lt;- Overview</a>
+    <h1>observer graphs - showcase</h1>
+
+    <div class="card">
+        <p>Visual output of the <code>*_graph</code> observer functions using real captured test data.
+           Observers without a graph function (<code>dmesg</code>, <code>trace_cmd</code>,
+           <code>mausezahn</code>) produce raw logs only and are not shown.</p>
+    </div>
+
+    <div class="card">
+        <h2>tshark &mdash; <code>tshark_graph</code></h2>
+        <p>Packet size over time from real pcap captures (mc_mitm scenario).
+           X axis: relative time (s), Y axis: frame length (bytes).
+           Extracted with <code>tshark -T fields -e frame.number -e frame.time -e frame.len</code>.</p>
+        <h3>tshark - attacker</h3>
+        <img src="tshark_attacker.png" alt="tshark - attacker" style="max-width:100%">
+        <h3>tshark - attacker_client PROBE</h3>
+        <p><em>Graph not available.</em></p>
+        <h3>tshark - client</h3>
+        <img src="tshark_client.png" alt="tshark - client" style="max-width:100%">
+    </div>
+
+    <div class="card">
+        <h2>tcpdump &mdash; packet graph</h2>
+        <p>tcpdump-captured pcap converted to CSV with tshark, visualised via <code>times_packet_sizes_from_csv</code>.</p>
+        <h3>tcpdump - ap</h3>
+        <img src="tcpdump_ap.png" alt="tcpdump - ap" style="max-width:100%">
+    </div>
+
+    <div class="card">
+
+
+    if (state_ok)
+        f << "        <img src=\"state_log.png\" alt=\"state log staircase\" style=\"max-width:100%\">\n";
+    else
+        f << "        <p><em>Graph not available (gnuplot missing or state log not found).</em></p>\n";
+
+    f << R"html(    </div>
+
+    <div class="card">
+        <h2>resource_checker &mdash; <code>generate_resource_graph</code></h2>
+        <p>CPU core usage (%) and free RAM (KB) logged remotely via awk, plotted with gnuplot.</p>
+        <p><em>TODO: get real data</em></p>
+    </div>
+
+    <div class="card">
+        <h2>station_counter &mdash; <code>generate_station_graph</code></h2>
+        <p>Connected station count sampled via <code>iw dev station dump</code>.</p>
+        <p><em>TODO: get real data</em></p>
+    </div>
+
+    <div class="card">
+        <h2>iperf_wrapper &mdash; <code>iperf_log_to_xy</code></h2>
+        <p>Bidirectional throughput (Mbits/sec) from a real bl0ck BAR attack run.
+           AP-server RX (red) and client TX (blue) on Y2 axis (0&ndash;15 Mbits/sec).
+           The drop to zero marks when the BAR attack disrupted the Block ACK session.</p>
+        <p><em>Graph not available (gnuplot missing or iperf log not found).</em></p>
+    </div>
+
+</body>
+</html>

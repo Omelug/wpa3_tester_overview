@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Device: c8:3a:35:b4:17:ea</title>
+    <title>Device: c8:3a:35:a8:05:59</title>
     <link rel="stylesheet" href="../../style.css">
     <script src="../../table_aggregate.js"></script>
 </head>
 <body>
     <a href="../index.html" class="back-link">← Devices</a>
-    <h1>c8:3a:35:b4:17:ea</h1>
+    <h1>c8:3a:35:a8:05:59</h1>
     <div class="card">
         <h2>Identity</h2>
         <table>
-            <tr><th>Permanent MAC</th><td>c8:3a:35:b4:17:ea</td></tr>
+            <tr><th>Permanent MAC</th><td>c8:3a:35:a8:05:59</td></tr>
             <tr><th>Source</th><td>internal</td></tr>
-            <tr><th>Driver</th><td>rtl8852au</td></tr>
+            <tr><th>Driver</th><td>rtw89_8852au</td></tr>
+            <tr><th>Driver hash</th><td>418a5fb01da0eb29</td></tr>
         </table>
     </div>
     <div class="card">
@@ -25,12 +26,41 @@
             <tr><th>Bands</th><td>2.4 GHz: yes &nbsp; 5 GHz: yes &nbsp; 6 GHz: no</td></tr>
             <tr><th>Standards</th><td>802.11n: yes &nbsp; 802.11ac: yes &nbsp; 802.11ax: yes</td></tr>
             <tr><th>Beacon protection</th><td>yes</td></tr>
-            <tr><th>CSA</th><td>no</td></tr>
+            <tr><th>CSA</th><td>yes</td></tr>
             <tr><th>OCV</th><td>no</td></tr>
             <tr><th>MFP</th><td>yes</td></tr>
             <tr><th>WPA-PSK</th><td>yes</td></tr>
             <tr><th>WPA3-SAE</th><td>yes</td></tr>
         </table>
+    </div>
+    <div class="card">
+        <h2>System Snapshot</h2>
+        <table>
+            <tr><th>PHY</th><td>phy2</td></tr>
+        </table>
+        <h3><code>iw dev info</code></h3>
+        <pre>Interface wlan2
+	ifindex 6
+	wdev 0x200000001
+	addr c8:3a:35:a8:05:59
+	type monitor
+	wiphy 2
+	channel 6 (2437 MHz), width: 20 MHz (no HT), center1: 2437 MHz
+	txpower 20.00 dBm
+	multicast TXQ:
+		qsz-byt	qsz-pkt	flows	drops	marks	overlmt	hashcol	tx-bytes	tx-packets
+		0	0	0	0	0	0	0	0		0
+</pre>
+        <h3>Driver Diagnostics</h3>
+        <pre>{
+  "driver_name": "rtw89_8852au",
+  "family": "rtw89",
+  "phy": "phy2",
+  "rtw89": {
+    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy2/rtw89",
+    "present": false
+  }
+}</pre>
     </div>
 </body>
 </html>

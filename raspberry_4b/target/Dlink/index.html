@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dlink — WPA3 Target Report</title>
+	<title>Dlink - WPA3 Target Report</title>
 	<link rel="stylesheet" href="../../style.css">
 	<script src="../../table_aggregate.js"></script>
 </head>
@@ -14,30 +14,290 @@
         <h2>Suite: Dlink_all</h2>
     </div>
     <div class="card" style="overflow-x: auto;">
-        <h2>SAE DoS (generic variants)</h2>
-    <div class="card" style="overflow-x: auto;">
-        <h2>sae_dos_modules</h2>
+        <h2>cookie_guzzler</h2>
         <table class="aggregate">
             <thead><tr><th>Test</th><th>AP Resources</th></tr></thead>
             <tbody>
                 <tr>
-                    <td>hasty</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>muted</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>omnivore</td>
-                    <td>—</td>
-                </tr>
-                <tr>
                     <td>cookie_guzzler</td>
-                    <td>—</td>
+                    <td><img src="../../../../tester_setup/raspberry_pi4/run/data/suite_data/comp/Dlink/suite/Dlink_all/cookie_guzzler/cookie_guzzler/observer/resource_checker/ap_res.png" style="max-height:160px;"></td>
                 </tr>
             </tbody>
         </table>
-</div>    </div>
-</body>
+<small>data from cookie_guzzler</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>bl0ck_BARS_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>bl0ck_BARS_Dlink</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:fd:b2 (internal)</td>
+                    <td>90:de:80:de:ff:a1 (mt76x2u)</td>
+                    <td>BARS</td>
+                    <td>0</td>
+                    <td>?</td>
+                    <td>?</td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from bl0ck</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>invalid_curve_attack_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP Driver</th><th>Hostapd version</th><th>Attacker Driver</th><th>AP openssl version</th><th>Connected?</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>invalid_curve_attack_Dlink</td>
+                    <td>mt7603e</td>
+                    <td>default</td>
+                    <td>ath9k_htc</td>
+                    <td>default</td>
+                    <td>no</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from invalid_curve</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>malformed_eapol1_patched_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Client wpa_supplicant version</th><th>Disconnected? <br> (from AP view)</th><th>Rogue WPA2 AP,same channel?
+(cracked)</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>malformed_eapol1_patched_Dlink</td>
+                    <td>78:98:e8:55:3e:8d (external)</td>
+                    <td><a href="../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (internal)</td>
+                    <td>2_11</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client log</td></tr></table></span></span> (no)</td>
+                    <td>no (no)</td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?<br><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from malformed_eapol1</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>memory_omnivore_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP Resources</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>memory_omnivore_Dlink</td>
+                    <td><img src="../../../../tester_setup/raspberry_pi4/run/data/suite_data/comp/Dlink/suite/Dlink_all/memory_omnivore_Dlink/memory_omnivore_Dlink/observer/resource_checker/ap_res.png" style="max-height:160px;"></td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from memory_omnivore</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>pmk_gobbler_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP Resources</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>pmk_gobbler_Dlink</td>
+                    <td><img src="../../../../tester_setup/raspberry_pi4/run/data/suite_data/comp/Dlink/suite/Dlink_all/pmk_gobbler_Dlink/pmk_gobbler_Dlink/observer/resource_checker/ap_res.png" style="max-height:160px;"></td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from pmk_gobbler</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>bl0ck_BAR_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>bl0ck_BAR_Dlink</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:fd:b2 (internal)</td>
+                    <td>90:de:80:de:ff:a1 (mt76x2u)</td>
+                    <td>BAR</td>
+                    <td>0</td>
+                    <td>?</td>
+                    <td>?</td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from bl0ck</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>owe_transition_probe_leak_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP Driver</th><th>Client Driver</th><th>Attacker Driver</th><th>BC probes</th><th>SSID probes</th><th>Disconnected</th><th>Vulnerable</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>owe_transition_probe_leak_Dlink</td>
+                    <td>mt7603e</td>
+                    <td>mt76x2u</td>
+                    <td>ath9k_htc</td>
+                    <td>10</td>
+                    <td>7</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from owe_trans</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>reflection_attack_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP Driver</th><th>Hostapd version</th><th>Attacker Driver</th><th>Connected?</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>reflection_attack_Dlink</td>
+                    <td>mt7603e</td>
+                    <td>default</td>
+                    <td>ath9k_htc</td>
+                    <td>no</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from reflection_attack</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>downgrade_Dlink_wb_wpa3_disable</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP </th><th>Client</th><th>Disconnected</th><th>Downgrade Seen</th><th>WPA3 disable</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>downgrade_Dlink_wb_wpa3_disable</td>
+                    <td>78:98:e8:55:3e:8d(mt7603e)</td>
+                    <td>90:de:80:de:fd:b2(mt76x2u)</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td><span class="has-tooltip">0x01<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>0x01</td><td>uci_conf</td></tr></table></span></span></td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from wpa3_trans_downgrade</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>ap_info_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>MAC</th><th>SSID</th><th>MFP</th><th>AKM</th><th>ACM triggered</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>ap_info_Dlink</td>
+                    <td>78:98:e8:55:3e:8d</td>
+                    <td>test_wpa3_tester</td>
+                    <td>REQUIRED</td>
+                    <td>PSK, PSK-SHA256, SAE_SHA256</td>
+                    <td>no</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from ap_info</small></div>        <p>No parser for <code>sae_dos_wrapper</code>.</p>
+        <p>No parser for <code>sae_dos_wrapper</code>.</p>
+        <p>No parser for <code>sae_dos_wrapper</code>.</p>
+        <p>No parser for <code>sae_dos_wrapper</code>.</p>
+    <div class="card" style="overflow-x: auto;">
+        <h2>bl0ck_BA_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)</th><th>Variant</th><th>Disconnected?</th><th>Iperf blocked?</th><th>ADDBA seen?</th><th>AP PBAC <br> Client PBAC</th><th>Reconnected?</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>bl0ck_BA_Dlink</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:fd:b2 (internal)</td>
+                    <td>90:de:80:de:ff:a1 (mt76x2u)</td>
+                    <td>BA</td>
+                    <td>0</td>
+                    <td>?</td>
+                    <td>?</td>
+                    <td>?<br>?</td>
+                    <td>yes</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from bl0ck</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>channel_switch_Dlink_MFP_req</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)<br> RogueAP MAC (driver)</th><th>Disconnected? <br> (from AP view)</th><th>Rogue WPA2 AP?
+(cracked)</th><th>AP OCV / Client OCV support</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th><th>client scanning</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>channel_switch_Dlink_MFP_req</td>
+                    <td>78:98:e8:55:3e:8d (external)</td>
+                    <td>90:de:80:de:ff:a1 (internal)</td>
+                    <td>90:de:80:de:fd:b2 (mt76x2u)<br><a href="../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client log</td></tr></table></span></span> (no)</td>
+                    <td>no (no)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?<br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?</td>
+                    <td>?</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from channel_switch</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>channel_switch_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)<br> RogueAP MAC (driver)</th><th>Disconnected? <br> (from AP view)</th><th>Rogue WPA2 AP?
+(cracked)</th><th>AP OCV / Client OCV support</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th><th>client scanning</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>channel_switch_Dlink</td>
+                    <td>78:98:e8:55:3e:8d (external)</td>
+                    <td>90:de:80:de:ff:a1 (internal)</td>
+                    <td>90:de:80:de:fd:b2 (mt76x2u)<br><a href="../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (ath9k_htc)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>client log</td></tr></table></span></span> (no)</td>
+                    <td>yes (yes)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?<br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?</td>
+                    <td><span class="has-tooltip">ch: 1 3 5 6 7 10 11<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 1 3 5 6 7 10 11</td><td>attacker pcap</td></tr></table></span></span></td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from channel_switch</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>wpa3_trans_downgrade_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP </th><th>Client</th><th>Disconnected</th><th>Downgrade Seen</th><th>WPA3 disable</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>wpa3_trans_downgrade_Dlink</td>
+                    <td>?(mt7603e)</td>
+                    <td>90:de:80:de:fd:b2(mt76x2u)</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td><span class="has-tooltip">0x01<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>0x01</td><td>uci_conf</td></tr></table></span></span></td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from wpa3_trans_downgrade</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>channel_switch_Dlink_5GHz</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Attacker (driver)<br> RogueAP MAC (driver)</th><th>Disconnected? <br> (from AP view)</th><th>Rogue WPA2 AP?
+(cracked)</th><th>AP OCV / Client OCV support</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th><th>client scanning</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>channel_switch_Dlink_5GHz</td>
+                    <td>78:98:e8:55:3e:8e (external)</td>
+                    <td>90:de:80:de:ff:a1 (internal)</td>
+                    <td>90:de:80:4e:31:e6 (mt76x2u)<br>90:de:80:de:fd:b2 (mt76x2u)</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>client log</td></tr></table></span></span> (no)</td>
+                    <td>no (no)</td>
+                    <td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>pcap (beacon)</td></tr></table></span></span><br><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td><span class="has-tooltip">OPTIONAL<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OPTIONAL</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?<br><span class="has-tooltip">SAE WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?</td>
+                    <td><span class="has-tooltip">ch: 36<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>ch: 36</td><td>attacker pcap</td></tr></table></span></span></td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from channel_switch</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>malformed_eapol1_Dlink</h2>
+        <table class="aggregate">
+            <thead><tr><th>Test</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>Client wpa_supplicant version</th><th>Disconnected? <br> (from AP view)</th><th>Rogue WPA2 AP,same channel?
+(cracked)</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>malformed_eapol1_Dlink</td>
+                    <td>78:98:e8:55:3e:8d (external)</td>
+                    <td><a href="../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (internal)</td>
+                    <td>2_10</td>
+                    <td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>client log</td></tr></table></span></span> (no)</td>
+                    <td>no (no)</td>
+                    <td><span class="has-tooltip">REQUIRED<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>REQUIRED</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?<br><span class="has-tooltip">SAE<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>SAE</td><td>wpa_supplicant_conf</td></tr></table></span></span></td>
+                    <td>?</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from malformed_eapol1</small></div></body>
 </html>
