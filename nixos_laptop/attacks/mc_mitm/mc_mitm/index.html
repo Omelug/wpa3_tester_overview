@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mc-mitm Attack - Results</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+    <a href="../../../index.html" class="back-link"><- Overview</a>
+    <h1>Multi-Channel MitM (mc-mitm)</h1>
+
+    <div class="card">
+        <p><b>Prerequisites:</b> client connected to a legitimate AP, working CSA attack</p>
+        <p>The attacker uses two wireless interfaces:
+			<b>rogue_client</b> monitors the real channel and <b>rogue_ap</b> runs a rogue AP on a different channel.
+			CSA beacons and deauth frames move the target client from the real AP to the rogue channel. (check CSA attack for more details)
+            Once the client associates with the rogue AP, traffic is forwarded through the attacker,
+            achieving a transparent MitM position without breaking connectivity.</p>
+        <p><b>Success:</b> client associates with the rogue AP (ClientState == GotMitm)</p>
+    </div>
+    <div class="card" style="overflow-x: auto;">
+        <h2>mc-mitm</h2>
+<p>Run mc_mitm_filler first to get data</p>
+</div></body>
+</html>

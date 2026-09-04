@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malformed EAPOL-1 DoS - Results</title>
+	<link rel="stylesheet" href="../../../style.css">
+	<script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+	<a href="../../../index.html" class="back-link"><- Overview</a>
+	<h1>Malformed EAPOL Key Frame DoS</h1>
+
+	<div class="card">
+		<p><b>prerequisites:</b> client attempting WPA3 handshake with access point</p>
+		<p>The attacker injects a malformed EAPOL 1 Key frame (invalid tag length) during
+		   the 4-way handshake, causing the client to disconnect.</p>
+		<p><b>success:</b> client disconnected from access point</p>
+	</div>
+
+    <div class="card" style="overflow-x: auto;">
+        <h2>Test Results</h2>
+<p>Run malformed_eapol1_basic_suite first to get data</p>
+</div>    <div class="card" style="overflow-x: auto;">
+        <h2>Dlink</h2>
+<p>Run m_eapol1_rogueAP_Dlink_filler first to get data</p>
+</div>    <div class="card" style="overflow-x: auto;">
+        <h2>Malformed eapol1 filler</h2>
+<p>Run malformed_eapol1_filler first to get data</p>
+</div></body>
+</html>

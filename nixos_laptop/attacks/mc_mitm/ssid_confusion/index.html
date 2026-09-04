@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSID Confusion Attack - Results</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+    <a href="../../../index.html" class="back-link"><- Overview</a>
+    <h1>SSID Confusion Attack</h1>
+
+    <div class="card">
+		<p><b>Info</b> <a href="https://nvd.nist.gov/vuln/detail/cve-2023-52424" >CVE-2023-52424</a></p>
+        <p><b>Prerequisites:</b>
+			<ul>
+				<li>client connected to AP with trusted ssid (SSID-A), client has untrusted ssid (SSID-B) in its profile</li>
+				<li>working mitm attack to move client</li>
+			</ul>
+		</p>
+        <p>
+		  <ul>
+			<li> the rogue AP clones the BSSID of the real AP but advertises SSID-B instead of SSID-A</li>
+			<li> optionally the RSN IE is stripped so the network appears open</li>
+			<li> client that auto-connects to SSID-B ends up associated with a network it did not intend to join,  believing it is on a trusted network.</li>
+		  </ul>
+	    </p>
+        <p><b>Success:</b> client associates with the rogue AP advertising the confused SSID (ClientState == GotMitm)</p>
+    </div>
+
+    <div class="card">
+        <h2>Mitigations</h2>
+        <ul>
+            <li>SSID included in the 4-way handshake </li>
+            <li>Beacon Protection - detects spoofed beacons with a different SSID</li>
+        </ul>
+    </div>
+
+    <div class="card" style="overflow-x: auto;">
+        <h2>ssid_confusion</h2>
+<p>Run ssid_confusion_filler first to get data</p>
+</div></body>
+</html>

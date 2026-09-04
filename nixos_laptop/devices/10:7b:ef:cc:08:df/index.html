@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device: 10:7b:ef:cc:08:df</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../table_aggregate.js"></script>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Devices</a>
+    <h1>10:7b:ef:cc:08:df</h1>
+    <div class="card">
+        <h2>Identity</h2>
+        <table>
+            <tr><th>Permanent MAC</th><td>10:7b:ef:cc:08:df</td></tr>
+            <tr><th>Source</th><td>internal</td></tr>
+            <tr><th>Driver</th><td>rtl8192cu</td></tr>
+            <tr><th>Driver hash</th><td>65b3f953f3f7dc9a</td></tr>
+        </table>
+    </div>
+    <div class="card">
+        <h2>Capabilities</h2>
+        <table>
+            <tr><th>Mode</th><td>AP: yes &nbsp; STA: yes &nbsp; Monitor: yes</td></tr>
+            <tr><th>Bands</th><td>2.4 GHz: yes &nbsp; 5 GHz: no &nbsp; 6 GHz: no</td></tr>
+            <tr><th>Standards</th><td>802.11n: yes &nbsp; 802.11ac: no &nbsp; 802.11ax: no</td></tr>
+            <tr><th>Beacon protection</th><td>no</td></tr>
+            <tr><th>CSA</th><td>no</td></tr>
+            <tr><th>OCV</th><td>no</td></tr>
+            <tr><th>MFP</th><td>yes</td></tr>
+            <tr><th>WPA-PSK</th><td>yes</td></tr>
+            <tr><th>WPA3-SAE</th><td>yes</td></tr>
+        </table>
+    </div>
+    <div class="card">
+        <h2>System Snapshot</h2>
+        <table>
+            <tr><th>PHY</th><td>phy4</td></tr>
+        </table>
+        <h3><code>iw dev info</code></h3>
+        <pre>Interface wlan4
+	ifindex 8
+	wdev 0x400000001
+	addr 10:7b:ef:cc:08:df
+	type monitor
+	wiphy 4
+	channel 6 (2437 MHz), width: 20 MHz (no HT), center1: 2437 MHz
+	txpower 20.00 dBm
+	multicast TXQ:
+		qsz-byt	qsz-pkt	flows	drops	marks	overlmt	hashcol	tx-bytes	tx-packets
+		0	0	0	0	0	0	0	0		0
+</pre>
+        <h3>Driver Diagnostics</h3>
+        <pre>{
+  "driver_name": "rtl8192cu",
+  "family": "rtl8xxxu",
+  "phy": "phy4",
+  "rtl8xxxu": {
+    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy4/rtl8xxxu",
+    "present": false
+  }
+}</pre>
+    </div>
+</body>
+</html>

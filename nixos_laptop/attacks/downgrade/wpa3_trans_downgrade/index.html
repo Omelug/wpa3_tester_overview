@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WPA3 Transition Downgrade - Results</title>
+	<link rel="stylesheet" href="../../../style.css">
+	<script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+	<a href="../../../index.html" class="back-link"><- Overview</a>
+	<h1>WPA3 Transition - Downgrade to WPA2-PSK</h1>
+
+	<div class="card">
+		<p><b>Prerequisites:</b> client connected to a WPA3-Transition AP (SAE+PSK).</p>
+		<p>A rogue WPA2-PSK-only AP with the same SSID is running</p>
+		<p>After the legitimate AP is stopped, a vulnerable client automatically associates using WPA2-PSK, completing a downgrade attack.</p>
+		<p><b>Success:</b> client send valid hash to rogue WPA2-PSK AP.</p>
+	</div>
+
+	<div class="card">
+		<h2>Mitigations</h2>
+		<ul>
+			<li>Enforce SAE-only association with wpa3 disable (disable PSK fallback, client needs to save it to some list)</li>
+			<li>WPA3-only mode (no transition mode)</li>
+		</ul>
+	</div>
+    <div class="card" style="overflow-x: auto;">
+        <h2>Internal filler</h2>
+        <table class="aggregate">
+            <thead><tr><th>wpa3_transition_downgrade_*</th><th>AP </th><th>Client</th><th>Disconnected</th><th>Downgrade Seen</th><th>WPA3 disable</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>a2d11788</td>
+                    <td>90:de:80:6c:90:92(mt76x2u)</td>
+                    <td>00:c0:ca:b7:69:2a(mt76x2u)</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>wpa3_only_a2d11788</td>
+                    <td>90:de:80:6c:90:92(mt76x2u)</td>
+                    <td>00:c0:ca:b7:69:2a(mt76x2u)</td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>ae0bc2ca</td>
+                    <td>90:de:80:6c:90:92(mt76x2u)</td>
+                    <td>6e:00:c0:08:40:88(rtw88_8821au)</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>wpa3_only_ae0bc2ca</td>
+                    <td>90:de:80:6c:90:92(mt76x2u)</td>
+                    <td>6e:00:c0:08:40:88(rtw88_8821au)</td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>d55926d2</td>
+                    <td>90:de:80:6c:90:92(mt76x2u)</td>
+                    <td>c8:3a:35:a8:05:59(rtw89_8852au)</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>wpa3_only_d55926d2</td>
+                    <td>90:de:80:6c:90:92(mt76x2u)</td>
+                    <td>c8:3a:35:a8:05:59(rtw89_8852au)</td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>?</td>
+                </tr>
+            </tbody>
+        </table>
+<small>data from wpa3_downgrade_filler</small></div>    <div class="card" style="overflow-x: auto;">
+        <h2>External filler</h2>
+<p>Run wpa3_downgrade_filler first to get data</p>
+</div></body>
+</html>
