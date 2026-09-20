@@ -8,16 +8,16 @@
 	<script src="../../../table_aggregate.js"></script>
 </head>
 <body>
-	<a href="../../../index.html" class="back-link"><- Overview</a>
+	<a href="../../../index.html" class="back-link"><= Overview</a>
 	<h1>Invalid curve</h1>
 
 	<div class="card">
-		<p> #TODO invalid curve from pdf </p>
-		<p><b>Success:</b> attacker connected </p>
+		<p><b>Info:</b>  https://github.com/vanhoefm/dragonslayer</p>
+		<p>Issue in  EAP-pwd.
+		   Some implementation dont properly validate that point is on valid curve (defined by group).
+		   Attacker send point with correct format but on curve with small count of possible results.
+		   Attacker try to connect multiple times and check if connection is accepted</p>
+		<p><b>Success:</b> Attacker can connected (after few attempts) without password.</p>
 	</div>
 
-    <div class="card" style="overflow-x: auto;">
-        <h2>Test Results</h2>
-<p>Run invalid_curve_filler first to get data</p>
-</div></body>
-</html>
+<div class="card" style="overflow-x: auto;"><h2>Test Results</h2><table class="aggregate"><thead><tr><th>Test</th><th>AP Driver</th><th>Hostapd version</th><th>Attacker Driver</th><th>AP openssl version</th><th>Connected?</th></tr></thead><tbody><tr><td>invalid_curve_attack_openssl_1_0_2f_85962d37</td><td>ath9k_htc</td><td>2_7</td><td>rtl8xxxu</td><td>OpenSSL_1_0_2f</td><td>no</td></tr><tr><td>invalid_curve_attack_openssl_1_0_2f_4e719980</td><td>mt76x2u</td><td>2_7</td><td>rtl8xxxu</td><td>OpenSSL_1_0_2f</td><td>no</td></tr><tr><td>invalid_curve_attack_5168e311</td><td>ath9k_htc</td><td>2_7</td><td>mt76x2u</td><td>default</td><td>no</td></tr><tr><td>invalid_curve_attack_e93943bb</td><td>ath9k_htc</td><td>2_7</td><td>mt76x2u</td><td>default</td><td>no</td></tr><tr><td>invalid_curve_attack_ad2876c4</td><td>ath9k_htc</td><td>2_7</td><td>mt76x2u</td><td>default</td><td>no</td></tr><tr><td>invalid_curve_attack_85962d37</td><td>ath9k_htc</td><td>2_7</td><td>rtl8xxxu</td><td>default</td><td>no</td></tr><tr><td>invalid_curve_attack_4e719980</td><td>mt76x2u</td><td>2_7</td><td>rtl8xxxu</td><td>default</td><td>no</td></tr></tbody></table><small>data from invalid_curve_filler</small></div></body></html>

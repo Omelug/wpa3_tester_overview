@@ -1,66 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Device: 10:7b:ef:cc:08:df</title>
-    <link rel="stylesheet" href="../../style.css">
-    <script src="../../table_aggregate.js"></script>
-</head>
-<body>
-    <a href="../index.html" class="back-link">← Devices</a>
-    <h1>10:7b:ef:cc:08:df</h1>
-    <div class="card">
-        <h2>Identity</h2>
-        <table>
-            <tr><th>Permanent MAC</th><td>10:7b:ef:cc:08:df</td></tr>
-            <tr><th>Source</th><td>internal</td></tr>
-            <tr><th>Driver</th><td>rtl8192cu</td></tr>
-            <tr><th>Driver hash</th><td>65b3f953f3f7dc9a</td></tr>
-        </table>
-    </div>
-    <div class="card">
-        <h2>Capabilities</h2>
-        <table>
-            <tr><th>Mode</th><td>AP: yes &nbsp; STA: yes &nbsp; Monitor: yes</td></tr>
-            <tr><th>Bands</th><td>2.4 GHz: yes &nbsp; 5 GHz: no &nbsp; 6 GHz: no</td></tr>
-            <tr><th>Standards</th><td>802.11n: yes &nbsp; 802.11ac: no &nbsp; 802.11ax: no</td></tr>
-            <tr><th>Beacon protection</th><td>no</td></tr>
-            <tr><th>CSA</th><td>no</td></tr>
-            <tr><th>OCV</th><td>no</td></tr>
-            <tr><th>MFP</th><td>yes</td></tr>
-            <tr><th>WPA-PSK</th><td>yes</td></tr>
-            <tr><th>WPA3-SAE</th><td>yes</td></tr>
-        </table>
-    </div>
-    <div class="card">
-        <h2>System Snapshot</h2>
-        <table>
-            <tr><th>PHY</th><td>phy4</td></tr>
-        </table>
-        <h3><code>iw dev info</code></h3>
-        <pre>Interface wlan4
-	ifindex 8
-	wdev 0x400000001
+<!DOCTYPE html><html lang=en><head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Device: 10:7b:ef:cc:08:df</title><link rel="stylesheet" href="../../style.css">
+		<script src="../../table_aggregate.js">
+		</script></head><body>
+		<a href="../index.html" class="back-link"><= Devices</a><h1>10:7b:ef:cc:08:df</h1><div class="card"><h2>Identity</h2><table><tr><th>Permanent MAC</th><td>10:7b:ef:cc:08:df</td></tr><tr><th>Source</th><td>internal</td></tr><tr><th>Driver</th><td>rtl8192cu</td></tr><tr><th>Driver hash</th><td>F68D188AE4D6E5D1A5AFBE0</td></tr><tr><th>Module hash</th><td>77fc0a0c18b748ff</td></tr></table></div><div class="card"><h2>Capabilities</h2><table><tr><th>Mode</th><td>AP: yes &nbsp; STA: yes &nbsp; Monitor: yes</td></tr><tr><th>Bands</th><td>2.4 GHz: yes &nbsp; 5 GHz: no &nbsp; 6 GHz: no</td></tr><tr><th>Standards</th><td>802.11n: yes &nbsp; 802.11ac: no &nbsp; 802.11ax: no</td></tr><tr><th>Beacon protection</th><td>no</td></tr><tr><th>PBAC (protected block ack agreement capable)</th><td>no</td></tr><tr><th>CSA</th><td>no</td></tr><tr><th>OCV</th><td>no</td></tr><tr><th>MFP</th><td>yes</td></tr><tr><th>WPA-PSK</th><td>yes</td></tr><tr><th>WPA3-SAE</th><td>yes</td></tr></table></div><div class="card"><h2>System Snapshot</h2><table><tr><th>PHY</th><td>phy57</td></tr><tr><th>Channel switch</th><td>PASS 27557 &micro;s</td></tr><tr><th>NetNS move</th><td>to netns: 72 ms &nbsp; return: 30 ms</td></tr><tr><th>Sniff iface create</th><td>PASS 523 ms</td></tr><tr><th>Start AP (hostapd)</th><td>FAIL -1 ms</td></tr></table><h3><code>iw dev info</code></h3><pre>Interface wlan1
+	ifindex 67
+	wdev 0x3900000001
 	addr 10:7b:ef:cc:08:df
 	type monitor
-	wiphy 4
+	wiphy 57
 	channel 6 (2437 MHz), width: 20 MHz (no HT), center1: 2437 MHz
 	txpower 20.00 dBm
 	multicast TXQ:
 		qsz-byt	qsz-pkt	flows	drops	marks	overlmt	hashcol	tx-bytes	tx-packets
 		0	0	0	0	0	0	0	0		0
-</pre>
-        <h3>Driver Diagnostics</h3>
-        <pre>{
+</pre><h3>USB Device</h3><table><tr><th>Vendor ID : Product ID</th><td>0586:341f</td></tr><tr><th>bcdDevice (version)</th><td>0200</td></tr><tr><th>Manufacturer</th><td>Realtek</td></tr><tr><th>Product</th><td>802.11n WLAN Adapter</td></tr><tr><th>Serial</th><td>00e04c000001</td></tr></table><h3>Driver Diagnostics</h3><pre>{
   "driver_name": "rtl8192cu",
   "family": "rtl8xxxu",
-  "phy": "phy4",
+  "phy": "phy57",
   "rtl8xxxu": {
-    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy4/rtl8xxxu",
+    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy57/rtl8xxxu",
     "present": false
   }
-}</pre>
-    </div>
-</body>
-</html>
+}</pre></div></body></html>

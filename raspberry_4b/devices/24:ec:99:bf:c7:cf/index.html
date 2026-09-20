@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang=en><head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Device: 24:ec:99:bf:b0:a1</title><link rel="stylesheet" href="../../style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Device: 24:ec:99:bf:c7:cf</title><link rel="stylesheet" href="../../style.css">
 		<script src="../../table_aggregate.js">
 		</script></head><body>
-		<a href="../index.html" class="back-link"><= Devices</a><h1>24:ec:99:bf:b0:a1</h1><div class="card"><h2>Identity</h2><table><tr><th>Permanent MAC</th><td>24:ec:99:bf:b0:a1</td></tr><tr><th>Source</th><td>internal</td></tr><tr><th>Driver</th><td>ath9k_htc</td></tr><tr><th>Driver hash</th><td>7B75BEBA942B67CE372F1E6</td></tr><tr><th>Module hash</th><td>0b75b62eabaa4140</td></tr></table></div><div class="card"><h2>Capabilities</h2><table><tr><th>Mode</th><td>AP: yes &nbsp; STA: yes &nbsp; Monitor: yes</td></tr><tr><th>Bands</th><td>2.4 GHz: yes &nbsp; 5 GHz: no &nbsp; 6 GHz: no</td></tr><tr><th>Standards</th><td>802.11n: yes &nbsp; 802.11ac: no &nbsp; 802.11ax: no</td></tr><tr><th>Beacon protection</th><td>no</td></tr><tr><th>PBAC (protected block ack agreement capable)</th><td>no</td></tr><tr><th>CSA</th><td>yes</td></tr><tr><th>OCV</th><td>no</td></tr><tr><th>MFP</th><td>yes</td></tr><tr><th>WPA-PSK</th><td>yes</td></tr><tr><th>WPA3-SAE</th><td>yes</td></tr></table></div><div class="card"><h2>System Snapshot</h2><table><tr><th>PHY</th><td>phy803</td></tr><tr><th>Channel switch</th><td>PASS 589359 &micro;s</td></tr><tr><th>NetNS move</th><td>to netns: 102 ms &nbsp; return: 29 ms</td></tr><tr><th>Sniff iface create</th><td>PASS 938 ms</td></tr><tr><th>Start AP (hostapd)</th><td>PASS 3677 ms</td></tr></table><h3><code>iw dev info</code></h3><pre>Interface wlan4
-	ifindex 798
-	wdev 0x32300000001
-	addr 24:ec:99:bf:b0:a1
+		<a href="../index.html" class="back-link"><= Devices</a><h1>24:ec:99:bf:c7:cf</h1><div class="card"><h2>Identity</h2><table><tr><th>Permanent MAC</th><td>24:ec:99:bf:c7:cf</td></tr><tr><th>Source</th><td>internal</td></tr><tr><th>Driver</th><td>ath9k_htc</td></tr><tr><th>Driver hash</th><td>7B75BEBA942B67CE372F1E6</td></tr><tr><th>Module hash</th><td>0b75b62eabaa4140</td></tr></table></div><div class="card"><h2>Capabilities</h2><table><tr><th>Mode</th><td>AP: yes &nbsp; STA: yes &nbsp; Monitor: yes</td></tr><tr><th>Bands</th><td>2.4 GHz: yes &nbsp; 5 GHz: no &nbsp; 6 GHz: no</td></tr><tr><th>Standards</th><td>802.11n: yes &nbsp; 802.11ac: no &nbsp; 802.11ax: no</td></tr><tr><th>Beacon protection</th><td>no</td></tr><tr><th>PBAC (protected block ack agreement capable)</th><td>no</td></tr><tr><th>CSA</th><td>yes</td></tr><tr><th>OCV</th><td>no</td></tr><tr><th>MFP</th><td>yes</td></tr><tr><th>WPA-PSK</th><td>yes</td></tr><tr><th>WPA3-SAE</th><td>yes</td></tr></table></div><div class="card"><h2>System Snapshot</h2><table><tr><th>PHY</th><td>phy53</td></tr><tr><th>Channel switch</th><td>PASS 587565 &micro;s</td></tr><tr><th>NetNS move</th><td>to netns: 107 ms &nbsp; return: 39 ms</td></tr><tr><th>Sniff iface create</th><td>PASS 949 ms</td></tr><tr><th>Start AP (hostapd)</th><td>FAIL -1 ms</td></tr></table><h3><code>iw dev info</code></h3><pre>Interface wlan3
+	ifindex 64
+	wdev 0x3500000001
+	addr 24:ec:99:bf:c7:cf
 	type monitor
-	wiphy 803
+	wiphy 53
 	channel 6 (2437 MHz), width: 20 MHz (no HT), center1: 2437 MHz
 	txpower 30.00 dBm
 	multicast TXQ:
@@ -32,7 +32,7 @@
     ],
     "debug_mask": "0x00000400
 ",
-    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy803/ath9k_htc",
+    "debugfs_dir": "/sys/kernel/debug/ieee80211/phy53/ath9k_htc",
     "host_queue_stats": "       Mgmt endpoint :          0
         Cab endpoint :          0
     Data BE endpoint :          0
@@ -42,8 +42,8 @@
         Failed queue :          0
         Queued count :          0
 ",
-    "host_rx_stats": "          PKTS-ALL :          1
-         BYTES-ALL :        319
+    "host_rx_stats": "          PKTS-ALL :          0
+         BYTES-ALL :          0
            BEACONS :          0
              FRAGS :          0
           SPECTRAL :          0
@@ -76,16 +76,16 @@ Used slots     : 0
            VO queued :          0
 ",
     "present": true,
-    "target_interrupt_stats": "                  RX :          2
+    "target_interrupt_stats": "                  RX :          1
                RXORN :          0
                RXEOL :          6
                TXURN :          0
                 TXTO :          0
                  CST :          0
 ",
-    "target_rx_stats": "               NoBuf :          1
-            HostSend :          2
-            HostDone :          2
+    "target_rx_stats": "               NoBuf :          0
+            HostSend :          1
+            HostDone :          1
 ",
     "target_tx_stats": "            Xretries :          0
              FifoErr :          0
@@ -100,5 +100,5 @@ Used slots     : 0
   },
   "driver_name": "ath9k_htc",
   "family": "ath9k_htc",
-  "phy": "phy803"
+  "phy": "phy53"
 }</pre></div></body></html>

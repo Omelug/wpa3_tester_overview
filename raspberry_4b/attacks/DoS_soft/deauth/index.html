@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deauth DoS (WPA2)</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <script src="../../../table_aggregate.js"></script>
+</head>
+<body>
+    <a href="../../../index.html" class="back-link"><= Overview</a>
+    <h1>Deauthentication DoS Attack (WPA2) - with MFP</h1>
+
+    <div class="card">
+        <p><b>Info:</b> hostapd security advisory 2019-7
+           (<a href="https://w1.fi/security/2019-7/">w1.fi/security/2019-7</a>) - CVE-2019-16275
+		</p>
+        <p>The attacker sends a deauthentication frame to the AP where
+           SA (source address) == AP's own MAC address <br>
+           Unpatched hostapd processes this frame and its response causes connected clients
+           to drop association <br>
+			- <b>bypassing PMF</b> because the frame targets the AP-side
+           state machine, not the client directly.</p>
+        <p><b>affected:</b> hostapd 2.10 (without the patch) </p>
+        <p><b>success:</b> client disconnected from AP</p>
+    </div>
+	<div class="card">
+		<h2>Mitigations</h2>
+		<ul>
+			<li> patch added silent ignore of management frames where SA == own_addr </li>
+			<li>
+				patch: https://w1.fi/security/2019-7/0001-AP-Silently-ignore-management-frame-from-unexpected-.patch
+			</li>
+		</ul>
+	</div>
+
+<div class="card" style="overflow-x: auto;"><h2>WPA2 deauth filler (2.9, 2.10)</h2><table class="aggregate"><thead><tr><th>deauth_wpa2_*</th><th>AP MAC (source)</th><th>Client MAC (source)</th><th>wpa_supplicant version</th><th>Disconnected? (client/AP)</th><th>Client MFP</th><th>AP/Client WPA support</th><th>Connected WPA version</th></tr></thead><tbody><tr><td>94ece7fc</td><td><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (internal)</td><td><a href="../../../devices/28:87:ba:a3:cf:16/index.html">28:87:ba:a3:cf:16</a> (internal)</td><td>2_9</td><td><span class="has-tooltip">no<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>no</td><td>client log</td></tr></table></span></span> (no)</td><td>?</td><td><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td><td>?</td></tr><tr><td>a23e9220</td><td><a href="../../../devices/24:ec:99:bf:b0:a1/index.html">24:ec:99:bf:b0:a1</a> (internal)</td><td><a href="../../../devices/24:ec:99:bf:c7:cf/index.html">24:ec:99:bf:c7:cf</a> (internal)</td><td>2_9</td><td><span class="has-tooltip">yes<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>yes</td><td>client log</td></tr></table></span></span> (yes)</td><td><span class="has-tooltip">OFF<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>OFF</td><td>hostapd</td></tr></table></span></span></td><td><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>hostapd_conf</td></tr></table></span></span><br><span class="has-tooltip">WPA-PSK<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>WPA-PSK</td><td>wpa_supplicant_conf</td></tr></table></span></span></td><td><span class="has-tooltip">00-0f-ac:2
+(WPA-PSK)<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>00-0f-ac:2
+(WPA-PSK)</td><td>hostapd</td></tr></table></span></span></td></tr></tbody></table><small>data from deauth_filler</small></div></body></html>

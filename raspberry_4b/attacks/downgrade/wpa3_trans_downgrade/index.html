@@ -8,7 +8,7 @@
 	<script src="../../../table_aggregate.js"></script>
 </head>
 <body>
-	<a href="../../../index.html" class="back-link"><- Overview</a>
+	<a href="../../../index.html" class="back-link"><= Overview</a>
 	<h1>WPA3 Transition - Downgrade to WPA2-PSK</h1>
 
 	<div class="card">
@@ -25,23 +25,4 @@
 			<li>WPA3-only mode (no transition mode)</li>
 		</ul>
 	</div>
-    <div class="card" style="overflow-x: auto;">
-        <h2>Internal filler</h2>
-        <table class="aggregate">
-            <thead><tr><th>Test</th><th>AP </th><th>Client</th><th>Disconnected</th><th>Downgrade Seen</th><th>WPA3 disable</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td>wpa3_transition_downgrade_wpa3_disable_1a1ef64e</td>
-                    <td>90:de:80:6c:90:92(mt76x2u)</td>
-                    <td>00:c0:ca:b7:69:2a(mt76x2u)</td>
-                    <td>yes</td>
-                    <td>no</td>
-                    <td><span class="has-tooltip">1<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>1</td><td>hostapd_conf</td></tr></table></span></span></td>
-                </tr>
-            </tbody>
-        </table>
-<small>data from wpa3_downgrade_filler</small></div>    <div class="card" style="overflow-x: auto;">
-        <h2>External filler</h2>
-<p>Run wpa3_downgrade_filler first to get data</p>
-</div></body>
-</html>
+<div class="card" style="overflow-x: auto;"><h2>Internal filler</h2><table class="aggregate"><thead><tr><th>wpa3_transition_downgrade_*</th><th>AP </th><th>Client</th><th>Disconnected</th><th>Downgrade Seen</th><th>WPA3 disable</th></tr></thead><tbody><tr><td>wpa3_disable_1a1ef64e</td><td>90:de:80:6c:90:92(mt76x2u)</td><td>00:c0:ca:b7:69:2a(mt76x2u)</td><td>yes</td><td>no</td><td><span class="has-tooltip">1<span class="tooltip-content"><table><tr><th>Value</th><th>Source</th></tr><tr><td>1</td><td>hostapd_conf</td></tr></table></span></span></td></tr><tr><td>a146ad49</td><td>90:de:80:6c:90:92(mt76x2u)</td><td>28:87:ba:a3:cf:16(rtl8xxxu)</td><td>yes</td><td>yes</td><td>?</td></tr><tr><td>wpa3_only_a146ad49</td><td>90:de:80:6c:90:92(mt76x2u)</td><td>28:87:ba:a3:cf:16(rtl8xxxu)</td><td>yes</td><td>no</td><td>?</td></tr></tbody></table><small>data from wpa3_downgrade_filler</small></div><div class="card" style="overflow-x: auto;"><h2>External filler</h2><p>Run wpa3_downgrade_filler first to get data</p></div></body></html>
